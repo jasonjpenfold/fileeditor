@@ -14,7 +14,7 @@ struct ContentView: View {
             .padding()
                 .buttonStyle(.glassProminent)
                 .shadow(radius: 5)
-                .fileImporter(isPresented: $importerIsPresented, allowedContentTypes: [.folder], allowsMultipleSelection: false, onCompletion: model.browse)//(result,error))
+                .fileImporter(isPresented: $importerIsPresented, allowedContentTypes: [.folder, .package], allowsMultipleSelection: false, onCompletion: model.browse)//(result,error))
         }
         
         let currentFolder = model.folderURL?.lastPathComponent ?? "No folder selected"
