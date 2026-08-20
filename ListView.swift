@@ -1,17 +1,18 @@
 import SwiftUI
 
-struct FolderView: View{
+struct ListView: View{
     @Environment(FileEditorViewModel.self) private var model
     
     var body: some View{
         List{
             if model.folderContents.isEmpty{
-                Text("No files")
-            }
-            ForEach(model.folderContents, id: \.self){file 
+                HStack{
+                    Label(" No files", systemImage: "document")
+                }
+                            }
+            ForEach(model.folderContents, id: \.self){nextFile 
                  in 
-                let name = file.lastPathComponent
-                Text("\(name)")
+                FileView(nextFile: nextFile)
             }
         }
     }

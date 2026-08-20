@@ -18,10 +18,12 @@ struct ContentView: View {
         }
         
         let currentFolder = model.folderURL?.lastPathComponent ?? "No folder selected"
-        Text("\(currentFolder)")
+        
+            
+        Label(currentFolder,systemImage: "folder.fill")
             .padding()
         
-        FolderView()
+        ListView()
             .padding()
     }
 }

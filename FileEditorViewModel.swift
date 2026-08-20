@@ -32,7 +32,8 @@ class FileEditorViewModel{
         
         let fileManager = FileManager.default
         do{
-            self.folderContents = try fileManager.contentsOfDirectory(at: folder, includingPropertiesForKeys: [], options: [.skipsHiddenFiles])
+            self.folderContents = try fileManager.contentsOfDirectory(at: folder, includingPropertiesForKeys: [], options: [])
+            // can see hidden files
         }catch{
             print("Error reading directory:  \(error.localizedDescription)")
             self.folderContents = []
