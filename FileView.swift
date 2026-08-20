@@ -14,7 +14,7 @@ struct FileView: View{
                         
             let name = nextFile.lastPathComponent
             Label(name, systemImage: "document")
-                .draggable(nextFile){
+                .draggable(DraggableFile(url: nextFile)){
                     
                     Label(name, systemImage: "shippingbox.fill")}
                 
