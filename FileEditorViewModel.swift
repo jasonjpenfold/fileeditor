@@ -4,6 +4,7 @@ import SwiftUI
 class FileEditorViewModel{
     var folderURL: URL? = nil
     var folderContents: [URL] = []
+    var didAccess: Bool = false
     
     
     func browse(result: Result<[URL],  any Error>){
@@ -25,10 +26,8 @@ class FileEditorViewModel{
     }
     func getFolderContents(){
         guard let folder = self.folderURL else {return}
-        guard folder.startAccessingSecurityScopedResource() else {return}
-        defer{
-            folder.stopAccessingSecurityScopedResource()
-        }
+        guard    folder.startAccessingSecurityScopedResource() else {return}
+        self.didAccess = true
         
         let fileManager = FileManager.default
         do{
