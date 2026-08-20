@@ -8,8 +8,10 @@ struct FolderView: View{
             if model.folderContents.isEmpty{
                 Text("No files")
             }
-            ForEach(model.folderContents, id: \.self){file in 
-                Text("\(file)")
+            ForEach(model.folderContents, id: \.self){file 
+                 in 
+                let name = file.lastPathComponent
+                Text("\(name)")
             }
         }
     }

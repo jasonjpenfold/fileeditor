@@ -17,7 +17,7 @@ struct ContentView: View {
                 .fileImporter(isPresented: $importerIsPresented, allowedContentTypes: [.folder], allowsMultipleSelection: false, onCompletion: model.browse)//(result,error))
         }
         
-        let currentFolder = model.folderURL?.absoluteString ?? "No folder selected"
+        let currentFolder = model.folderURL?.lastPathComponent ?? "No folder selected"
         Text("\(currentFolder)")
             .padding()
         
