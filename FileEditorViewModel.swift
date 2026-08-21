@@ -2,10 +2,21 @@ import SwiftUI
 
 @Observable
 class FileEditorViewModel{
-    var folderURL: URL? = nil
+    var folderURL: URL? = nil {
+        willSet{
+            
+                if didAccess{
+                    folderURL?.stopAccessingSecurityScopedResource()
+                didAccess = false
+                folderContents = []
+            }
+        }
+    }
     var folderContents: [URL] = []
     var didAccess: Bool = false
-    
+    init(){
+        
+    }
     
     func browse(result: Result<[URL],  any Error>){
        
