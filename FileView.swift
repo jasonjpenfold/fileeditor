@@ -10,7 +10,7 @@ struct FileView: View{
         
         HStack{
             
-            Text(model.didAccess ? "Accessed" : "Not Accessed")
+            //Text(model.didAccess ? "Accessed" : "Not Accessed")
                         
             let name = nextFile.lastPathComponent
             
