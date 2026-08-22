@@ -14,6 +14,7 @@ class FileEditorViewModel{
     }
     var folderContents: [URL] = []
     var didAccess: Bool = false
+    
     init(){
         
     }

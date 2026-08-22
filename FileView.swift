@@ -13,7 +13,12 @@ struct FileView: View{
             Text(model.didAccess ? "Accessed" : "Not Accessed")
                         
             let name = nextFile.lastPathComponent
-            Label(name, systemImage: "document")
+            
+            let urlType: FolderOrFile = FolderOrFile.urlType(url: nextFile)
+            
+            
+            
+            Label(name, systemImage: urlType.urlImage)
                 .draggable(DraggableFile(url: nextFile)){
                     
                     Label(name, systemImage: "shippingbox.fill")}
@@ -22,4 +27,5 @@ struct FileView: View{
                 
         }
     }
+    
 }
