@@ -43,11 +43,17 @@ class FileEditorViewModel{
         
         let fileManager = FileManager.default
         do{
-            self.folderContents = try fileManager.contentsOfDirectory(at: folder, includingPropertiesForKeys: [], options: [])
+            var urlContents = try fileManager.contentsOfDirectory(at: folder, includingPropertiesForKeys: [], options: [])
             // can see hidden files
+            urlContents = sortURLAlphaIncreasing(urls: urlContents) 
+            
+            self.folderContents = urlContents
         }catch{
             print("Error reading directory:  \(error.localizedDescription)")
             self.folderContents = []
         }
+    }
+    func sortURLAlphaIncreasing(urls: [URL])->[URL]{
+        return urls.sorted{$0.lastPathComponent < $1.lastPathComponent}
     }
 }

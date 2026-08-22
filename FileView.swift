@@ -11,19 +11,22 @@ struct FileView: View{
         HStack{
             
             //Text(model.didAccess ? "Accessed" : "Not Accessed")
-                        
+            
             let name = nextFile.lastPathComponent
             
             let urlType: FolderOrFile = FolderOrFile.urlType(url: nextFile)
             
-            
-            
-            Label(name, systemImage: urlType.urlImage)
-                .draggable(DraggableFile(url: nextFile)){
+            if urlType == .folder || urlType == .package{
+                NavigationLink(value: nextFile, label:
+                                {
+                    Label(name, systemImage: urlType.urlImage)
+                        .draggable(DraggableFile(url: nextFile)){
+                            
+                            Label(name, systemImage: "shippingbox.fill")}
                     
-                    Label(name, systemImage: "shippingbox.fill")}
-                
-                
+                })
+            }
+            
                 
         }
     }

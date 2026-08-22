@@ -25,8 +25,10 @@ struct ContentView: View {
             
         Label(currentFolder,systemImage: "folder.fill")
             .padding()
-        
-        ListView()
-            .padding()
-    }
+        NavigationStack{
+            
+            ListView()
+                .padding()
+        }
+            }
 }
