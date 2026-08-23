@@ -2,8 +2,9 @@ import SwiftUI
 
 struct NestedFolderView: View{
     @Environment(FileEditorViewModel.self) private var model
-    //var nestedFolderIndex: Int?
+    
     var nestedFolderURL: URL 
+    
     var body: some View{
         List{
             

@@ -5,8 +5,6 @@ struct ListView: View{
     
     var body: some View{
         List{
-            NavigationLink(value: 1, label: {Text("Test")})
-            
             
             if model.folderContents.isEmpty{
                 HStack{
@@ -17,9 +15,6 @@ struct ListView: View{
                  in 
                 FileView(nextFile: nextFile)
             }
-        }.navigationDestination(for: Int.self){
-            number in 
-            TestView(number: number)
         }
         .navigationDestination(for: URL.self){
             nestedFolderURL in 

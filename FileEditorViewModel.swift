@@ -15,12 +15,7 @@ class FileEditorViewModel{
     var folderContents: [URL] = []
     var didAccess: Bool = false
     
-    var nestedFolders: [URL] = []
-    var currentNestedFolderIndex: Int? = nil
-    var currentNestedFolderContents: [URL] {
-        guard let currentNestedFolderIndex = self.currentNestedFolderIndex else { return []}
-        return getFolderContents(url: nestedFolders[currentNestedFolderIndex])
-    }
+    
     
     init(){
         
@@ -77,8 +72,5 @@ class FileEditorViewModel{
     func sortURLAlphaIncreasing(urls: [URL])->[URL]{
         return urls.sorted{$0.lastPathComponent < $1.lastPathComponent}
     }
-    func addNestedFolderURL(nestedFolderURL: URL){
-        self.nestedFolders.append(nestedFolderURL)
-        self.currentNestedFolderIndex = 0
-    }
+    
 }
