@@ -25,6 +25,11 @@ struct FileView: View{
                             Label(name, systemImage: "shippingbox.fill")}
                     
                 })
+            }else{
+                Label(name, systemImage: urlType.urlImage)
+                    .draggable(DraggableFile(url: nextFile)){
+                        
+                        Label(name, systemImage: "shippingbox.fill")}
             }
             
                 

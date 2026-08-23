@@ -15,6 +15,13 @@ class FileEditorViewModel{
     var folderContents: [URL] = []
     var didAccess: Bool = false
     
+    var nestedFolders: [URL] = []
+    var currentNestedFolderIndex: Int? = nil
+    var currentNestedFolderContents: [URL] {
+        guard let currentNestedFolderIndex = self.currentNestedFolderIndex else { return []}
+        return getFolderContents(url: nestedFolders[currentNestedFolderIndex])
+    }
+    
     init(){
         
     }
@@ -53,7 +60,25 @@ class FileEditorViewModel{
             self.folderContents = []
         }
     }
+    func getFolderContents(url: URL)->[URL]{
+        
+        let fileManager = FileManager.default
+        do{
+            var urlContents = try fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: [], options: [])
+            // can see hidden files
+            urlContents = sortURLAlphaIncreasing(urls: urlContents) 
+            
+            return urlContents
+        }catch{
+            print("Error reading directory:  \(error.localizedDescription)")
+            return []
+        }
+    }
     func sortURLAlphaIncreasing(urls: [URL])->[URL]{
         return urls.sorted{$0.lastPathComponent < $1.lastPathComponent}
+    }
+    func addNestedFolderURL(nestedFolderURL: URL){
+        self.nestedFolders.append(nestedFolderURL)
+        self.currentNestedFolderIndex = 0
     }
 }
