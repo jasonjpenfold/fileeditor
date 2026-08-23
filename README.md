@@ -5,6 +5,10 @@ A SwiftUI file browser for iPad.
 I built this to make it easier to work with Swift Package Manager
 (.swiftpm) projects created in Swift Playgrounds on iPad.
 
+## Screenshot
+
+![iPadPackageBrowser file browser](Images/file-browser.png)
+
 ## What it does
 
 - Browse folders and nested folders
@@ -34,4 +38,3 @@ into Working Copy.
 - Drag and drop
 
 
- 
