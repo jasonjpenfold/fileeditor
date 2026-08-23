@@ -9,10 +9,10 @@ I built this to make it easier to work with Swift Package Manager
 
 - Browse folders and nested folders
 - Browse Swift Package Manager packages
-- Identify files, folders and packages
-- Display hidden files
+- Distinguish files, folders and packages
+- Browse hidden files
 - Drag individual files into other apps
-- Transfer files to Working Copy
+- Drag individual files directly into Working Copy
 
 ## Why I built it
 
@@ -32,3 +32,6 @@ into Working Copy.
 - Security-scoped resources
 - Core Transferable
 - Drag and drop
+
+
+ 
